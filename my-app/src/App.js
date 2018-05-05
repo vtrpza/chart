@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Chart} from './Chart'
-import {SelectionBoxYear} from './SelectionBoxYear'
-import {SelectionBoxValue} from './SelectionBoxValue'
+import {Chart} from './components/Chart'
+import {SelectionBoxYear} from './components/SelectionBoxYear'
+import {SelectionBoxValue} from './components/SelectionBoxValue'
 
 
 const oneYear = [
