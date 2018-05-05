@@ -7,18 +7,18 @@ import {SelectionBoxValue} from './components/SelectionBoxValue'
 
 
 const oneYear = [
-  {name: 'January',reais:2200, bitcoin: 1000},
-  {name: 'February',reais:2420, bitcoin: 440},
-  {name: 'March',reais:2662, bitcoin: 1043},
-  {name: 'April',reais:2928, bitcoin: 1560},
-  {name: 'May',reais:3220, bitcoin: 789},
-  {name: 'June',reais:3542, bitcoin: 866},
-  {name: 'July',reais:3896, bitcoin: 999},
-  {name: 'August',reais:4285, bitcoin: 1440},
-  {name: 'September',reais:4713, bitcoin: 1650},
-  {name: 'October',reais:5184, bitcoin: 1043},
-  {name: 'November',reais:5702, bitcoin: 1450},
-  {name: 'December',reais:6272, bitcoin: 1500},
+  {name: 'January',reais:2000, bitcoin: 2000},
+  {name: 'February',reais:2016.6, bitcoin: 2500},
+  {name: 'March',reais:2033.33, bitcoin: 2400},
+  {name: 'April',reais:2050.21, bitcoin: 2800},
+  {name: 'May',reais:2067.22, bitcoin: 2789},
+  {name: 'June',reais:2084.37, bitcoin: 2866},
+  {name: 'July',reais:2101.67, bitcoin: 2999},
+  {name: 'August',reais:2119.11, bitcoin: 3000},
+  {name: 'September',reais:2136.69, bitcoin: 3650},
+  {name: 'October',reais:2154.42, bitcoin: 3443},
+  {name: 'November',reais:2172.30, bitcoin: 3450},
+  {name: 'December',reais:2190.33, bitcoin: 13500},
 ];
 
 const twoYear = [
@@ -65,12 +65,12 @@ myCallback = (dataFromChild) => {
  })
 }
 
-onHandleChange = (data, listDataFromChild) => {
-  if(this.state.listDataFromChild === 'oneYear'){
+onHandleChange = (data, listDataFromChild) => { // Don't know what's happening here, that's why I've switched the states which they react to
+  if(this.state.listDataFromChild === 'twoYear'){
     this.setState({
       data:oneYear
     })
-   } else if(this.state.listDataFromChild === 'twoYear'){
+   } else if(this.state.listDataFromChild === 'oneYear'){
       this.setState({
         data:twoYear
       })
