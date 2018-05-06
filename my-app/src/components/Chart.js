@@ -4,7 +4,7 @@ import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'rec
 
 
 
-export const Chart = ({dataFromParent}) => {
+export const Chart = ({dataFromParent, typeInvestment}) => {
     return (
         <div>
         <LineChart width={1400} height={300} data={dataFromParent}
@@ -14,8 +14,7 @@ export const Chart = ({dataFromParent}) => {
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
             <Legend />
-            <Line type="monotone" dataKey="reais" stroke="#8884d8" activeDot={{r: 8}}/>
-            <Line type="monotone" dataKey="bitcoin" stroke="#82ca9d" />
+            <Line type="monotone" dataKey={typeInvestment} stroke="#8884d8" activeDot={{r: 8}}/>
         </LineChart>
     </div>
     )
