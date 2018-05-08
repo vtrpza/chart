@@ -182,84 +182,76 @@ const twoYearTD10k = [
 
 class App extends Component {
 
-constructor(props) {
-  super(props);
-  this.state = {
-    data: oneYearTD2k,
-    listDataFromChild: null,
-    listDataFromChild1: null,
-    listDataFromChild2: null
-  };
-}
-
-myCallback = (dataFromChild) => {
- this.setState({
-   typeInvestment: dataFromChild
- })
-}
-myCallback1 = (dataFromChild1) => {
-  this.setState({
-    periodInvestment: dataFromChild1
-  })
- }
- myCallback2 = (dataFromChild2) => {
-  this.setState({
-    valueInvestment: dataFromChild2
-  })
- }
-
-onHandleChange = (typeInvestment, periodInvestment, valueInvestment, data) => { 
-  if(typeInvestment === "tesouroDireto" && periodInvestment === "oneYear" && valueInvestment === "twok"){
-    this.setState({
-      data: oneYearTD2k
-    })
-  } if(typeInvestment === "tesouroDireto" && periodInvestment === "twoYear" && valueInvestment === "twok"){
-    this.setState({
-      data: twoYearTD2k
-    })
-  } if(typeInvestment === "tesouroDireto" && periodInvestment === "oneYear" && valueInvestment === "tenk"){
-    this.setState({
-      data: oneYearTD10k
-    }) 
-  } if(typeInvestment === "tesouroDireto" && periodInvestment === "twoYear" && valueInvestment === "tenk"){
-    this.setState({
-      data: twoYearTD10k
-    }) 
-  } if(typeInvestment === "bitcoin" && periodInvestment === "oneYear" && valueInvestment === "twok"){
-    this.setState({
-      data: oneYearBt2k
-    })
-  } if(typeInvestment === "bitcoin" && periodInvestment === "twoYear" && valueInvestment === "twok"){
-    this.setState({
-      data: twoYearBt2k
-    })
-  } if(typeInvestment === "bitcoin" && periodInvestment === "oneYear" && valueInvestment === "tenk"){
-    this.setState({
-    data: oneYearBt10k
-    })
-  } if(typeInvestment === "bitcoin" && periodInvestment === "twoYear" && valueInvestment === "tenk"){
-    this.setState({
-    data: twoYearBt10k
-    })
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: oneYearTD2k,
+      typeInvestment: null,
+      periodInvestment: null,
+      valueInvestment: null
+    };
   }
-}
-
-  render() {
-    const {data} = this.state;
-    const {typeInvestment} = this.state;
   
-
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Chart App</h1>
-        </header>
-        <Chart dataFromParent={data} typeInvestment={typeInvestment} />  
-        <SelectionBox callbackFromParent={this.myCallback} callbackFromParent1={this.myCallback1} callbackFromParent2={this.myCallback2}  onHandleChange={this.onHandleChange} dataFromParent={data}/>
-     </div> 
-    );
+  callback = (dataFromChild,dataFromChild1,dataFromChild2) => {
+   this.setState({
+    typeInvestment: dataFromChild,
+    periodInvestment: dataFromChild1,
+    valueInvestment: dataFromChild2
+   })
   }
+  
+  onHandleSubmit = (typeInvestment, periodInvestment, valueInvestment, data) => { 
+    if(typeInvestment === "tesouroDireto" && periodInvestment === "oneYear" && valueInvestment === "twok"){
+      this.setState({
+        data: oneYearTD2k
+      })
+    } if(typeInvestment === "tesouroDireto" && periodInvestment === "twoYear" && valueInvestment === "twok"){
+      this.setState({
+        data: twoYearTD2k
+      })
+    } if(typeInvestment === "tesouroDireto" && periodInvestment === "oneYear" && valueInvestment === "tenk"){
+      this.setState({
+        data: oneYearTD10k
+      }) 
+    } if(typeInvestment === "tesouroDireto" && periodInvestment === "twoYear" && valueInvestment === "tenk"){
+      this.setState({
+        data: twoYearTD10k
+      }) 
+    } if(typeInvestment === "bitcoin" && periodInvestment === "oneYear" && valueInvestment === "twok"){
+      this.setState({
+        data: oneYearBt2k
+      })
+    } if(typeInvestment === "bitcoin" && periodInvestment === "twoYear" && valueInvestment === "twok"){
+      this.setState({
+        data: twoYearBt2k
+      })
+    } if(typeInvestment === "bitcoin" && periodInvestment === "oneYear" && valueInvestment === "tenk"){
+      this.setState({
+      data: oneYearBt10k
+      })
+    } if(typeInvestment === "bitcoin" && periodInvestment === "twoYear" && valueInvestment === "tenk"){
+      this.setState({
+      data: twoYearBt10k
+      })
+    }
+  }
+  
+    render() {
+      const {data} = this.state;
+      const {typeInvestment} = this.state;
+    
+  
+      return (
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1 className="App-title">Chart App</h1>
+          </header>
+          <SelectionBox callback={this.callback} onHandleSubmit={this.onHandleSubmit}/>
+          <Chart dataFromParent={data} typeInvestment={typeInvestment} />  
+       </div> 
+      );
+    }
 }
 
 export default App;

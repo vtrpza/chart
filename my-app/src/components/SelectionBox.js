@@ -24,7 +24,7 @@ export class SelectionBox extends React.Component {
             value: e.target.value
         })
     }
-    
+
     handleChange1(e) {
         this.setState({
             value1: e.target.value
@@ -34,26 +34,17 @@ export class SelectionBox extends React.Component {
     handleChange2(e) {
         this.setState({
             value2: e.target.value
-        })    
+        })
     }
     
-
     handleSubmit(e) {
         let { value } = this.state;
         let { value1 } = this.state;
         let { value2 } = this.state;
-        this.props.callbackFromParent(value);
-        this.props.callbackFromParent1(value1);
-        this.props.callbackFromParent2(value2);
-        this.props.onHandleChange(value, value1, value2, this.props.dataFromParent)
-        
-        /*
-        const { value } = this.state;
-        const { value1 } = this.state;
-        const { value2 } = this.state;
 
-        alert('The value is: ' + value + ',' + value1 + ',' + value2);
-        */
+        this.props.callback(value,value1,value2);
+        this.props.onHandleSubmit(value, value1, value2)
+
         e.preventDefault();
       }
 
