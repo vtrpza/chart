@@ -247,7 +247,9 @@ class App extends Component {
           <div className="wrapper">
             <div className="main">
               <div className="container">
-                <Title/>
+                <div className="title-container">
+                  <Title/>
+                </div>
                 <div className="row maincontainer">
                   <div className="col-xs-2">
                     <SelectionBox callback={this.callback} onHandleSubmit={this.onHandleSubmit}/>
