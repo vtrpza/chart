@@ -64,11 +64,15 @@ export class SelectionBox extends React.Component {
                             <option value="tesouroDireto">Tesouro Direto</option>
                             <option value="bitcoin">Bitcoin</option>
                         </select>
+                        <br/>
+                        <br/>
                         <p>Select the year of the investment:</p>
                         <select value={value1} onChange={this.handleChange1}> 
                             <option value="oneYear">One year ago</option>
                             <option value="twoYear">Two years ago</option>
                         </select>
+                        <br/>
+                        <br/>
                         <p>Select the value of the investment:</p>
                         <select value={value2} onChange={this.handleChange2}> 
                             <option value="twok">R$2,000</option>

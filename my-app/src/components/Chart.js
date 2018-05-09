@@ -9,7 +9,7 @@ export const Chart = ({dataFromParent, typeInvestment}) => {
         <div>
         { 
             dataFromParent && typeInvestment && <div>
-                <LineChart width={1400} height={300} data={dataFromParent}
+                <LineChart width={895} height={300} data={dataFromParent}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <XAxis dataKey="name"/>
                     <YAxis/>
